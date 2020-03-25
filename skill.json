@@ -12,18 +12,17 @@
     "publishingInformation": {
       "locales": {
         "pt-BR": {
-          "name": "Clickbus Teste",
-          "summary": "Sample Short Description",
-          "description": "Sample Full Description",
+          "name": "Bus Travel Skill",
+          "summary": "Get updates from bus travel tickets avaiable",
+          "description": "Get updates from bus travel tickets avaiable",
           "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
+            "Alexa comprar passagem de ônibus",
+            "Quero viajar de São Paulo para Rio de Janeiro"
           ],
           "keywords": []
         }
       },
-      "isAvailableWorldwide": true,
+      "isAvailableWorldwide": false,
       "testingInstructions": "Sample Testing Instructions.",
       "category": "KNOWLEDGE_AND_TRIVIA",
       "distributionCountries": []
