@@ -1,0 +1,203 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "comprar passagem de ônibus",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "BuyTicketIntent",
+          "slots": [
+            {
+              "name": "origin",
+              "type": "place",
+              "samples": [
+                "Estou em {origin}",
+                "De {origin}"
+              ]
+            },
+            {
+              "name": "destination",
+              "type": "place",
+              "samples": [
+                "Eu quero ir para {destination}",
+                "Para {destination}"
+              ]
+            },
+            {
+              "name": "departureDate",
+              "type": "AMAZON.DATE",
+              "samples": [
+                "{departureDate}",
+                "Em {departureDate}"
+              ]
+            }
+          ],
+          "samples": [
+            "Quero viajar de {origin} para {destination} em {departureDate}",
+            "Quero viajar de {origin} para {destination}  {departureDate}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "DepartureTimeIntent",
+          "slots": [
+            {
+              "name": "departureTime",
+              "type": "timeOfDay"
+            }
+          ],
+          "samples": [
+            "{departureTime}",
+            "Eu prefiro viajar pela {departureTime} "
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "rio-de-janeiro-rj-todos",
+              "name": {
+                "value": "Rio de Janeiro"
+              }
+            },
+            {
+              "id": "sao-paulo-sp-todos",
+              "name": {
+                "value": "São Paulo"
+              }
+            }
+          ],
+          "name": "place"
+        },
+        {
+          "values": [
+            {
+              "id": "dawn",
+              "name": {
+                "value": "madrugada"
+              }
+            },
+            {
+              "id": "evening",
+              "name": {
+                "value": "noite"
+              }
+            },
+            {
+              "id": "afternoon",
+              "name": {
+                "value": "tarde"
+              }
+            },
+            {
+              "id": "morning",
+              "name": {
+                "value": "manhã"
+              }
+            }
+          ],
+          "name": "timeOfDay"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "BuyTicketIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.499651122237"
+          },
+          "slots": [
+            {
+              "name": "origin",
+              "type": "place",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.499651122237.100571513895"
+              }
+            },
+            {
+              "name": "destination",
+              "type": "place",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.499651122237.699184658733"
+              }
+            },
+            {
+              "name": "departureDate",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.499651122237.236810717665"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.499651122237.100571513895",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "De onde você vai viajar?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.499651122237.699184658733",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Para onde você deseja viajar?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.499651122237.236810717665",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Quando você pretende viajar?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.499651122237",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Você gostaria de viajar para {destination} {departureDate} e saindo de {origin} ?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Você gostaria de viajar para {destination} em {departureDate} saindo de {origin} ?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "6"
+}
